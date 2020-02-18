@@ -3,10 +3,9 @@ using System.Collections.Generic;
 
 namespace AutoMapperExamples.Entity
 {
-    public abstract class ContactBase : IEntity
+    public class LegalEntityDto : IDto
     {
+       public ContactBase Contact { get; set; }
         public int Id { get; set; }
-        public string Name { get; set; }
-
     }
 }

@@ -77,5 +77,33 @@ namespace AutoMapperExamples {
             Assert.AreNotEqual(contactDtos.Count, 0);
         }
 
-	}
+        [TestMethod]
+        public void AbstractClassExample() {
+            Mapper.CreateMap<LegalEntity, LegalEntityDto>().ReverseMap();
+            Mapper.AssertConfigurationIsValid();
+            var le = new LegalEntity();
+            le.Contact = new Individual();
+            le.Contact.Name = "jorge";
+            le.Contact.Id = 3;
+
+            var leDto = Mapper.Map<LegalEntityDto>(le);
+            Assert.IsNotNull(leDto.Contact);
+            Assert.AreEqual(leDto.Contact.Id, 3);
+        }
+
+        [TestMethod]
+        public void AbstractClassIgnoreExample() {
+            Mapper.CreateMap<LegalEntity, LegalEntityDto>()
+                .ForMember(d => d.Contact, a => a.Ignore())
+                .ReverseMap();
+            Mapper.AssertConfigurationIsValid();
+            var le = new LegalEntity();
+            le.Contact = new Individual();
+            le.Contact.Name = "jorge";
+            le.Contact.Id = 3;
+
+            var leDto = Mapper.Map<LegalEntityDto>(le);
+            Assert.IsNull(leDto.Contact);
+        }
+    }
 }

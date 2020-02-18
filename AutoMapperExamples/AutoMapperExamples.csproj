@@ -59,11 +59,13 @@
     <Compile Include="AutoMapperProfiles\PhoneProfile.cs" />
     <Compile Include="AutoMapperProfiles\ContactProfileNoPhones.cs" />
     <Compile Include="Dto\Car.cs" />
+    <Compile Include="Dto\LegalEntityDto.cs" />
     <Compile Include="DynamicMapsExample.cs" />
     <Compile Include="Dto\ContactBase.cs" />
     <Compile Include="Dto\OrganizationDto.cs" />
     <Compile Include="Entity\ContactBase.cs" />
     <Compile Include="Dto\Destination.cs" />
+    <Compile Include="Entity\LegalEntity.cs" />
     <Compile Include="Entity\Organization.cs" />
     <Compile Include="Entity\Source.cs" />
     <Compile Include="IDto.cs" />
